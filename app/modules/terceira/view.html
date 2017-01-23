@@ -1,0 +1,138 @@
+<md-content>
+  <div class="md-padding">
+    <div class="enunciado">
+      <p>
+        Refatore o código abaixo, fazendo as alterações que julgar necessário
+      </p>
+
+      <div layout="row">
+        <div flex>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?php
+
+    class MyUserClass
+    {
+      public function getUserList()
+      {
+        $dbconn = new DatabaseConnection('localhost','user','password');
+        $results = $dbconn->query('select name from user');
+
+        sort($results);
+
+        return $results;
+      }
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="resposta">
+      <h3>Resposta</h3>
+
+      <div layout="row">
+        <div flex>
+          <p class=".md-title text-center">DBConfig.php</p>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?php
+
+    class DBConfig
+    {
+        protected $server;
+        protected $user;
+        protected $password;
+        protected $db;
+
+        public function DBConfig()
+        {
+            $this->server = 'localhost';
+            $this->user = 'brab0';
+            $this->password = '';
+            $this->db = 'dbase';
+        }
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+      <br />
+      <div layout="row">
+        <div flex>
+          <p class=".md-title text-center">DatabaseConnection.php</p>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?php
+
+    require_once('DBConfig.php');
+
+    class DatabaseConnection extends DBConfig
+    {
+        public $connectionString;
+
+        protected $db;
+        protected $server;
+        protected $user;
+        protected $password;
+
+        public function DatabaseConnection()
+        {
+            $this->connectionString = NULL;
+
+            $config = new DBConfig();
+            $this->db = $config->db;
+            $this->server = $config->server;
+            $this->user = $config->user;
+            $this->password = $config->password;
+
+            $this->start();
+        }
+
+        private function start()
+        {
+            $this->connectionString = mysql_connect($this->server, $this->user, $this->password);
+
+            mysql_select_db($this->db, $this->connectionString);
+        }
+
+        public function query($query)
+        {
+            return mysql_query(mysql_real_escape_string($query, $this->connectionString));
+        }
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+      <br />
+      <div layout="row">
+        <div flex>
+          <p class=".md-title text-center">MyUserClass.php</p>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?php
+
+    require_once('DatabaseConnection.php');
+
+    class MyUserClass
+    {
+        private $db;
+
+        public function MyUserClass()
+        {
+            $this->db = new DatabaseConnection();
+        }
+
+        public function getUserList()
+        {
+            return $this->db->query('select name from user order by name asc');
+        }
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-content>

@@ -1,0 +1,21 @@
+<md-content>
+  <div class="md-padding">
+    <p class="enunciado">Reeead Me!!!</p>
+    <div layout="row">
+      <div flex>
+        <pre class="md-whiteframe-z2">
+          <code>
+  &lt;?
+   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+     header("Location: http://www.google.com");
+     exit();
+   } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
+     header("Location: http://www.google.com");
+     exit();
+   }
+   
+          </code>
+        </pre>
+      </div>
+  </div>
+</md-content>

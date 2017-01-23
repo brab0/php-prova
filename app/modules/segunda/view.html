@@ -1,0 +1,74 @@
+<md-content>
+  <div class="md-padding">
+    <div class="enunciado">
+      <p>
+        Refatore o código abaixo, fazendo as alterações que julgar necessário
+      </p>
+
+      <div layout="row">
+        <div flex>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+      header("Location: http://www.google.com");
+      exit();
+    } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
+      header("Location: http://www.google.com");
+      exit();
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+    <div class="resposta">
+      <h3>Resposta</h3>
+
+      <div layout="row">
+        <div flex>
+          <p class=".md-title text-center">User.php</p>
+          <pre class="md-whiteframe-z2">
+            <code>
+    &lt;?php
+
+    class User
+    {
+        public function isLoggedIn()
+        {
+            if (isset($_SESSION['loggedin']){
+                return $_SESSION['loggedin'];
+            } elseif (isset($_COOKIE['Loggedin']){
+                return $_COOKIE['Loggedin'];
+            }
+        }
+    }
+            </code>
+          </pre>
+        </div>
+      </div>
+      <br />
+      <div layout="row">
+        <div flex>
+          <p class=".md-title text-center">teste.php</p>
+          <pre class="md-whiteframe-z2">            
+            <code>
+    &lt;?php
+
+    require_once('User.php');
+
+    $user = new User();
+
+    if(user->isLoggedIn()){
+        header("Location: http://www.google.com");
+        exit();
+    }
+
+    ?&gt;
+            </code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</md-content>

@@ -1,0 +1,28 @@
+# Api #
+/api/tmp
+/api/CakeCore
+/api/plugins
+/api/vendors
+/api/build
+*.mo
+
+# App #
+/app/node_modules
+/app/assets/bower_components
+
+# IDE && editor #
+/nbproject
+.idea
+/.project
+/.buildpath
+/.settings/
+
+# OS files #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
