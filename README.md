@@ -28,7 +28,7 @@ própria aplicação.
 Este projeto utiliza uma arquitetura RESTfull e preza pela separação total 
 do backend(api) da camada de front-end(app). Esta modularização abre possibilidades
 para se traçar estratégias de deploy e alocação de recursos de hardware
-como for mais conveniente.
+como for mais conveniente, inclusive trabalhando em diferentes servidores(CORS).
 
 ```html
 |api
