@@ -1,9 +1,8 @@
 #PHP - Teste de Conhecimentos
 
 ##Requisitos
-- Linguagem PHP 5.3
-- Regras definidas pela PSR-2
-- Frameworks e bibliotecas utilizados para solução inclusos no repositório
+- PHP 5.3
+- PSR-2
 
 ##Ambiente
 ```html
@@ -46,7 +45,10 @@
 - Apache ou outro servidor web com mod.rewrite habilitado
 - Git
 - NPM para o bower e servidor http (opcional)
+- PDO
 
+
+###Repositório
 ```html
 ˜# git clone https://github.com/brab0/php-prova.git
 ˜# cd php-prova
