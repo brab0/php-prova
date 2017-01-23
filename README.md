@@ -64,7 +64,7 @@
 
 #### Configuração
 - Crie um banco com o nome api;
-- Edite as configurações do banco de dados (api/Config/database.php);
+- Edite as configurações do banco de dados, se necessário (api/Config/database.php);
 - Start o MySql;
 - No terminal, ainda dentro da pasta api, gere o Schema do banco com o comando abaixo:
 ```html
