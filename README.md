@@ -1,21 +1,34 @@
 #PHP - Teste de Conhecimentos
+Este projeto resolve 4 questões aplicadas sobre requisitos específicos e tem
+como objetivo servir de baliza para conhecimentos técnicos sobre PHP,
+algorítimos e serviços RESTfull. Resposta e explicações estão dispostas na
+própria aplicação.
+
 
 ##Requisitos
 - PHP 5.3
-- PSR-2
-
-##Ambiente
-```html
-- Apache (ou qualquer outro servidor web)
-- PHP 5.3
-- CakePHP 2.x
 - MySql (PDO)
-- AngularJs
 - Git
-- NPM
+- Web Server para a API (mod.rewrite)
+
+
+##Frameworks Utilizados
+- CakePHP 2.x
+- AngularJs
+
+
+##Repositório (Clone)
+```html
+˜# git clone https://github.com/brab0/php-prova.git
+˜# cd php-prova
 ```
 
+
 ##Estrutura
+Este projeto utiliza uma arquitetura RESTfull e preza pela separação total 
+do backend(api) da camada de front-end(app). Esta modularização abre possibilidades
+para se traçar estratégias de deploy e alocação de recursos de hardware
+como for mais conveniente.
 
 ```html
 |api
@@ -40,19 +53,6 @@
 
 ```
 
-###Requisitos
-- MySql
-- Apache ou outro servidor web com mod.rewrite habilitado
-- Git
-- NPM para o bower e servidor http (opcional)
-- PDO
-
-
-###Repositório
-```html
-˜# git clone https://github.com/brab0/php-prova.git
-˜# cd php-prova
-```
 
 ### API
 #### Instalação
@@ -72,11 +72,10 @@
 ```
 - Start o seu servidor php (Apache, Nginx etc);
 
-Obs I: O cake tem algumas particularidades com permissões (principalmente na pasta tmp). Por isso, na dúvida:  https://book.cakephp.org/2.0/pt/installation.html
+Obs I: Existem algumas particularidades com relação a permissões da pasta tmp, que é utilizada para diversos recursos do Cake. Por isso, em caso de dúvida ou algum problema, consulte:  https://book.cakephp.org/2.0/pt/installation.html
 
-Obs II: Para este projeto, optou-se por desacoplar a dependencia do core do CakePHP da API. Com esta modularização,
-consegue-se uma estrutura muita mais enxuta de manter, visto que em se tratando de uma API, views, assets e outras dependencias webroot do Cake são desnecessárias. Além disto, não é necessário o versionamento deste código(no git).
-Por isto, se quiser, você pode optar por excluir a pasta /app dentro de CakeCore/, visto que ela não será utilizada;
+Obs II: O CakePHP possui um acoplamento forte entre seu core e a pasta app do framework (não confundir com a pasta /app da raiz do projeto). Porém, este acoplamento pode ser desnecessário, visto que somente uma parte do framework
+é de fato mantido no ciclo do desenvolvimento. Desta forma, neste projeto o framework foi levemente modificado para que o seu bootstrap seja feito a partir da aplicação e não do core, como é feito normalmente. Isto permite, que módulos desnecessários para a estrutura da API (/webroot, por exemplo) sejam removidos e que o versionamento deste código possa ser realizado sem a necessidade de incluir este core. Por isto, após clonar o framework, você pode optar por excluir a pasta /app dentro de /CakeCore, visto que ela não será utilizada;
 
 
 ### APP (Front-End)
@@ -98,7 +97,8 @@ Para executar o bower, é possível que se necessite acrescentar o parâmetro --
 ˜# ./node_modules/http-server/bin/http-server
 ```
 
-##Endpoints
+
+##Endpoints da API
 ###GET /tasks
 Retorna status code 200 e JSON com todas as tarefas cadastradas.
 

@@ -9,7 +9,23 @@
     </div>
     <div class="resposta">
       <h3>Resposta</h3>
+      <p>
+        Aproveitou-se da arquitetura já desenvolvida para resolver esta questão.
+        Desta forma, foi criado um endpoint(/iterations) extra o qual detem o
+        método que retorna um array construído todo no backend(PHP). O front-end
+        apenas imprime os resultados.
+      </p>
+      <h4>
+        #GET /iterations
+      </h4>
+      <p>Retorna status code 200 e objeto com todas as iterações.</p>
 
+      <p>- res.data</p>
+      <pre>
+        <code>
+    [1,2,"Fizz",4,"Buzz","Fizz",7,8,"Fizz","Buzz",11,"Fizz",13,14,"FizzBuzz",...]
+        </code>
+      </pre>
       <div layout="row">
         <div flex class="md-whiteframe-z2 bg-white">
           <p ng-repeat="item in dataIterations track by $index" ng-bind="item" class="text-center"></p>

@@ -1,21 +1,158 @@
 <md-content>
   <div class="md-padding">
-    <p class="enunciado">Reeead Me!!!</p>
-    <div layout="row">
-      <div flex>
-        <pre class="md-whiteframe-z2">
-          <code>
-  &lt;?
-   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-     header("Location: http://www.google.com");
-     exit();
-   } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
-     header("Location: http://www.google.com");
-     exit();
-   }
-   
-          </code>
-        </pre>
-      </div>
+    <h2>PHP - Teste de Conhecimentos</h2>
+    <p>Este projeto resolve 4 questões aplicadas sobre requisitos específicos e tem
+    como objetivo servir de baliza para conhecimentos técnicos sobre PHP,
+    algorítimos e serviços RESTfull. Resposta e explicações estão dispostas na
+    própria aplicação.<p>
+
+    <div style="margin-top: 60px">
+      <h3>Frameworks Utilizados</h3>
+      <ul>
+        <li>CakePHP 2.x</li>
+        <li>AngularJs</li>
+      </ul>
+    </div>
+
+    <div style="margin-top: 60px">
+      <h3>Estrutura</h3>
+      <p>I - Este projeto utiliza uma arquitetura RESTfull e preza pela separação total
+      do backend(api) da camada de front-end(app). Esta modularização abre possibilidades
+      para se traçar estratégias de deploy e alocação de recursos de hardware
+      como for mais conveniente.
+      </p>
+      <p>
+        II - O CakePHP possui um acoplamento forte entre seu core e a pasta app do framework
+        (não confundir com a pasta /app da raiz do projeto). Porém, este acoplamento
+        pode ser desnecessário, visto que somente uma parte do framework
+        é de fato mantido no ciclo do desenvolvimento. Desta forma, neste projeto o
+        framework foi levemente modificado para que o seu bootstrap seja feito a partir da
+        aplicação e não do core, como é feito normalmente. Isto permite, que módulos desnecessários
+        para a estrutura da API (/webroot, por exemplo) sejam removidos e que o versionamento deste
+        código possa ser realizado sem a necessidade de incluir este core. Por isto, após clonar o framework,
+        você pode optar por excluir a pasta /app dentro de /CakeCore, visto que ela não será utilizada;
+      </p>
+      <pre>
+        <code>
+    |api
+    |--|Config
+    |----|Schema
+    |--|Console
+    |--|Controller
+    |--|Model
+    |--|tmp
+    |app
+    |--|assets
+    |----|css
+    |----|imgs
+    |--|modules
+    |----|readme
+    |----|primeira
+    |----|segunda
+    |----|terceira
+    |----|quarta
+    |--|templates
+    |----|parts
+        </code>
+      </pre>
+    </div>
+
+    <div style="margin-top: 60px">
+      <h3>Endpoints da API</h3>
+      <h4>
+        #GET /tasks
+      </h4>
+      <p>Retorna status code 200 e JSON com todas as tarefas cadastradas.</p>
+
+      <p>- res.data</p>
+      <pre>
+        <code>
+    [
+      {
+        "id" : "1",
+        "titulo" : "Teste",
+        "descricao" : "teste",
+        "prioridade" : "1"
+      },
+      ...
+    ]
+        </code>
+      </pre>
+
+      <br />
+      <h4>
+        #GET /tasks/:id
+      </h4>
+      <p>Retorna status code 200 e JSON com a tarefa encontrada pelo id. Caso o id não exista, retorna 404.</p>
+
+      <p>- res.data</p>
+      <pre>
+        <code>
+    {
+      "id" : "1",
+      "titulo" : "Teste",
+      "descricao" : "teste",
+      "prioridade" : "1"
+    }
+        </code>
+      </pre>
+
+      <br />
+      <h4>#POST /tasks</h4>
+      <p>Cria uma tarefa, retorna 201 Created e um objeto JSON.</p>
+
+      <p>- req.body</p>
+      <pre>
+        <code>
+    {
+      "titulo" : "Teste",
+      "descricao" : "teste"
+    }
+        </code>
+      </pre>
+
+      <p>- res.data</p>
+
+      <pre>
+        <code>
+    {
+      "id" : "1",
+      "titulo" : "Teste",
+      "descricao" : "teste",
+      "prioridade" : "1"
+    }
+        </code>
+      </pre>
+
+      <br />
+      <h4>#PUT /tasks/:id</h4>
+      <p>Atualiza uma tarefa pelo id passado, retorna 200 e um objeto JSON.</p>
+
+      <p>- req.body</p>
+      <pre>
+        <code>
+    {
+      "titulo" : "Teste",
+      "descricao" : "teste"
+    }
+        </code>
+      </pre>
+
+      <p>- res.data</p>
+      <pre>
+        <code>
+    {
+      "id" : "1",
+      "titulo" : "Teste",
+      "descricao" : "teste",
+      "prioridade" : "1"
+    }
+        </code>
+      </pre>
+
+      <br />
+      <h4>#DELETE /tasks/:id</h4>
+      <p>Apaga uma tarefa pelo id. Retorna vazio(204) em caso de sucesso e 404 caso o id não exista.</p>
+    </div>
   </div>
 </md-content>
