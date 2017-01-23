@@ -96,6 +96,8 @@ Para executar o bower, é possível que se necessite acrescentar o parâmetro --
 ```html
 ˜# ./node_modules/http-server/bin/http-server
 ```
+...ou use outro servidor web!
+
 
 
 ##Endpoints da API
