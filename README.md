@@ -58,7 +58,7 @@
 #### Instalação
 ```html
 ˜# cd api
-˜# chmod -R 777 tmp
+˜# mkdir tmp && chmod -R 777 tmp
 ˜# git clone -b 2.x git://github.com/cakephp/cakephp.git CakeCore
 ```
 
