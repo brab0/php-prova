@@ -58,13 +58,13 @@
 #### Instalação
 ```html
 ˜# cd api
-˜# chmod -R 777 tmp
+˜# mkdir tmp && chmod -R 777 tmp
 ˜# git clone -b 2.x git://github.com/cakephp/cakephp.git CakeCore
 ```
 
 #### Configuração
 - Crie um banco com o nome api;
-- Edite as configurações do banco de dados (/Config/database.php);
+- Edite as configurações do banco de dados, se necessário (api/Config/database.php);
 - Start o MySql;
 - No terminal, ainda dentro da pasta api, gere o Schema do banco com o comando abaixo:
 ```html
@@ -91,8 +91,8 @@ Para executar o bower, é possível que se necessite acrescentar o parâmetro --
 
 
 #### Configuração
-- Edite o endereço da sua api no arquivo /modules/config.js
-- No terminal, ainda na pasta raiz da pasta app, execute:
+- Edite o endereço da sua api no arquivo app/modules/config.js
+- No terminal, ainda na raiz da pasta app, execute:
 
 ```html
 ˜# ./node_modules/http-server/bin/http-server
