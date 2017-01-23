@@ -91,7 +91,7 @@ Para executar o bower, é possível que se necessite acrescentar o parâmetro --
 
 
 #### Configuração
-- Edite o endereço da sua api no arquivo /modules/config.js
+- Edite o endereço da sua api no arquivo app/modules/config.js
 - No terminal, ainda na pasta raiz da pasta app, execute:
 
 ```html
